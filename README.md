@@ -68,6 +68,8 @@ prediction=prediction.reshape(-1,1)
 pre=scaler.inverse_transform(prediction)
 print(prediction)
 print(f"Predicted value: {pre}")
+print("Name: Divya R")
+print("Reg no : 212222040040")
 ```
 
 ## Output:
@@ -78,7 +80,8 @@ print(f"Predicted value: {pre}")
 ## X1_scaled
 ![image](https://github.com/user-attachments/assets/83527c1c-2106-46fe-80cc-ee018a1c0174)
 ## Prediction
-![image](https://github.com/user-attachments/assets/5f49a753-054f-4d37-bf4d-ab008cf34098)
+![image](https://github.com/user-attachments/assets/24d1853d-21af-496d-97ce-ccfea26c2af0)
+
 
 
 

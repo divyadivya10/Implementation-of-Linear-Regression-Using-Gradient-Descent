@@ -8,24 +8,35 @@ To write a program to predict the profit of a city using the linear regression m
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
+1.Load Dataset: Read the dataset (50_Startups.csv) into a pandas DataFrame.
 
-1.Import the required library and read the dataframe.
+2.Extract Features and Target: Separate the dataset into features (X) and target variable (y).
 
-2.Write a function computeCost to generate the cost function.
+3.Convert Data to Numeric: Convert the feature data to float type if necessary.
 
-3.Perform iterations og gradient steps with learning rate.
+4.Scale Features: Scale the feature data (X) using StandardScaler to standardize the values.
 
-4.Plot the Cost function using Gradient Descent and generate the required graph.
+5.Scale Target (Optional): Optionally scale the target variable (y) for better performance in gradient descent.
+
+6.Initialize Parameters: Initialize the model parameters (theta) with zeros.
+
+7.Gradient Descent: Apply gradient descent to minimize the cost function and update the parameters (theta).
+
+8.Train the Model: Train the model using the scaled features and target variable.
+
+9.Make Predictions: Predict the output using the trained model for new data.
+
+10.Inverse Scaling: (If target was scaled) Apply inverse scaling to the prediction to get it back to the original scale.
 
 ## Program:
 ```
-
 /*
 Program to implement the linear regression using gradient descent.
-
 Developed by: Divya R
 RegisterNumber:  212222040040
-
+*/
+```
+```
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
@@ -39,7 +50,7 @@ def linear_regression(X1,y,learning_rate = 0.1, num_iters = 1000):
         theta -= learning_rate*(1/len(X1))*X.T.dot(errors)
     return theta
 data=pd.read_csv("50_Startups.csv")
-data.head()
+print(data.head())
 X=(data.iloc[1:,:-2].values)
 X1=X.astype(float)
 scaler=StandardScaler()
@@ -47,6 +58,7 @@ y=(data.iloc[1:,-1].values).reshape(-1,1)
 X1_Scaled=scaler.fit_transform(X1)
 Y1_Scaled=scaler.fit_transform(y)
 print(X)
+print("\n")
 print(X1_Scaled)
 theta= linear_regression(X1_Scaled,Y1_Scaled)
 new_data=np.array([165349.2,136897.8,471784.1]).reshape(-1,1)
@@ -56,17 +68,19 @@ prediction=prediction.reshape(-1,1)
 pre=scaler.inverse_transform(prediction)
 print(prediction)
 print(f"Predicted value: {pre}")
-
-*/
 ```
 
-## Output 1:
+## Output:
+## data.head()
+![image](https://github.com/user-attachments/assets/1ff649af-c10e-4a50-9892-3221e1202e71)
+## X
+![image](https://github.com/user-attachments/assets/fa0755f2-5362-4fe6-8d01-bf93d5615bcf)
+## X1_scaled
+![image](https://github.com/user-attachments/assets/83527c1c-2106-46fe-80cc-ee018a1c0174)
+## Prediction
+![image](https://github.com/user-attachments/assets/5f49a753-054f-4d37-bf4d-ab008cf34098)
 
-![image](https://github.com/user-attachments/assets/f212d615-1cdd-4300-bbd1-aa06c4bc77f6)
 
-## Output 2:
-
-![image](https://github.com/user-attachments/assets/02d1dcee-5bf5-41ec-8901-e06057c58515)
 
 
 
